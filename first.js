@@ -9,7 +9,28 @@ let appData = {
     income:{},
     savings: false
 };
-let ex1 = prompt("Enter a required cost item this month");
-let ex2 = prompt("How much will it cost?");
-appData.expenses.ex1 = ex2;
-alert(appData.budget / 30);
+
+for (let i = 0; i < 2; i++) {
+    let a = +prompt("Enter a required cost item this month");
+    let b = +prompt("How much will it cost?");
+  
+    
+    if ( (typeof(a)) === 'string' && (typeof(a)) != null && 
+    (typeof(b)) != null && a != '' && a != '' && a.length < 50) {
+        console.log("Done");
+        appData.expenses[a] = b; 
+    } 
+}
+appData.moneyperday = appData.budget/30;
+
+alert("Daily budget:", appData.moneyperday);
+
+if(appData.moneyperday < 100) {
+    console.log("Minimum level of wealth");
+} else if (appData.moneyperday > 100 && appData.moneyperday < 2000) {
+console.log("Medium level of wealth");
+} else if ( appData.moneyperday > 2000) {
+    console.log("Higher level of wealth");
+} else {
+    console.log("Mistake");
+}
